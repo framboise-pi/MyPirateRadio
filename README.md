@@ -4,6 +4,7 @@ mp3 player from NAS,or else; play random or not
 pHAT-beat
 - https://github.com/pimoroni/phat-beat
 - https://pinout.xyz/pinout/phat_beat#
+- https://learn.pimoroni.com/tutorial/sandyj/getting-started-with-phat-beat
 
 ideas to include :
 - https://github.com/MiczFlor/RPi-Jukebox-RFID
