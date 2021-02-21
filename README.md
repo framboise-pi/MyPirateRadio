@@ -14,3 +14,6 @@ I took ideas and code from:
 - https://github.com/andywarburton/pirate_jukebox
 - https://github.com/ajalexsmith/PirateRadio
 - 
+
+use python 2
+- python pirateradio.py
