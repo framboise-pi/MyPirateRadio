@@ -5,9 +5,11 @@ pHAT-beat
 - https://github.com/pimoroni/phat-beat
 - https://pinout.xyz/pinout/phat_beat#
 
-idea to include :
+ideas to include :
 - https://github.com/MiczFlor/RPi-Jukebox-RFID
+- 
 
 I took ideas and code from:
 - https://github.com/andywarburton/pirate_jukebox
+- https://github.com/ajalexsmith/PirateRadio
 - 
