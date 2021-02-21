@@ -1,5 +1,6 @@
 # MyPimoroni-PirateRadio
 mp3 player from NAS,or else; play random or not
+Made with Pimoroni Pirate Radio and Raspberry Zero W
 
 pHAT-beat
 - https://github.com/pimoroni/phat-beat
