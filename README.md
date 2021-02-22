@@ -3,6 +3,7 @@ mp3 player from NAS,or else; play random or not
 Made with Pimoroni Pirate Radio and Raspberry Zero W
 
 # Remove pulseaudio (high CPU load on raspberry zero)
+- `sudo nano /etc/asound.conf`
 - alsa dont charge CPU when not used ... pulseaudio uses around 40% minimum, all the time, on Pi0
 
 
