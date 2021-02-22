@@ -2,6 +2,10 @@
 mp3 player from NAS,or else; play random or not
 Made with Pimoroni Pirate Radio and Raspberry Zero W
 
+# Remove pulseaudio (high CPU load on raspberry zero)
+- alsa dont charge CPU when not used ... pulseaudio uses around 40% minimum, all the time, on Pi0
+
+
 pHAT-beat
 - https://github.com/pimoroni/phat-beat
 - https://pinout.xyz/pinout/phat_beat#
