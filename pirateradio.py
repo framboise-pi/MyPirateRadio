@@ -15,9 +15,12 @@
 # (it will include all subdirectories)
 # volume - default volume on start
 # volume_inc - increment for volume UP/DOWN
+#
+# phatbeat.set_pixel(x, r, g, b, brightness 0>1, channel 0 or 1)
 ###########################
 
 ######################################################################## DEPENDANCES
+
 
 from pygame import mixer
 import phatbeat, glob
@@ -26,8 +29,7 @@ import time
 
 ######################################################################## VARIABLES
 
-music_directory_1 = '/mnt/xxxxx/'
-#music_directory_2 =
+music_directory_1 = '/mnt/XXX/xxx/'
 random_mode = True
 track = -1
 volume_inc = 0.01
@@ -41,19 +43,20 @@ Run = True
 ## TO UPDATE
 def phatbeat_start():
     phatbeat.clear()
-    phatbeat.set_all(255, 0, 255)
-    #for p in range(16):
-	#phatbeat.set_pixel(p, 200, 0, 255)
+    #phatbeat.set_all(255, 0, 255)
+    for p in range(16):
+	phatbeat.set_pixel(p, 200, 0, 255, 0.1)
     phatbeat.show()
 
-### NOT UED
+### NOT USED
 def phatbeat_wait():
-    global player
-    player = 'wait'
+    #global player
+    #player = 'wait'
     phatbeat.clear()
-    phatbeat.set_all(255, 0, 255)
-    #for p in range(16):
-	#phatbeat.set_pixel(p, 0, 255, 255)
+    #phatbeat.set_all(0, 255, 0)
+    #for channel in (0,1):
+    phatbeat.set_pixel(0, 0, 255, 0, 0.1, 0)
+    phatbeat.set_pixel(0, 0, 0, 255, 0.1, 1)
     phatbeat.show()
 
 def song_randomize():
@@ -91,25 +94,25 @@ phatbeat_start()
 # mp3 files to array
 print ("...reading mp3 folders")
 files = glob.glob(music_directory_1 + '/**/*.mp3')
-# make a copy to avoid same values in tracklist
+# make a copy of files for preventing dupes
 tracklist = files[:]
 songs = len(tracklist)
 
-print ("My Pimoroni Pirate Radio.....starting")
+print (".....starting My Pirate Radio")
 print ("folder :" + music_directory_1)
-print ("there are " + str(songs) + " mp3 songs in tracklist")
+print ("--- there are " + str(songs) + " mp3 songs in tracklist")
 if songs <= 0:
     print ("ERROR: No mp3 files found !!!")
     exit
 if random_mode:
-    print ("---Random mode is ON")
+    print ("--- Random mode is ON")
 else :
-    print ("---Random mode is OFF")
+    print ("--- Random mode is OFF")
     
 ######################################################################## PYGAME
 
 #pygame.init()
-#mixer.pre_init(44100, -16, 1, 2048) # setup mixer to avoid sound lag
+mixer.pre_init(44100, -16, 1, 2048) # setup mixer to avoid sound lag
 mixer.init()
 mixer.music.set_volume(volume)
 
@@ -119,6 +122,7 @@ if random_mode :
 else :
     print ("**** playing first track")
     song_next()
+    
 ######################################################################## PLAY/PAUSE button
 
 @phatbeat.on(phatbeat.BTN_PLAYPAUSE)
@@ -133,7 +137,7 @@ def play_pause(pin):
 	mixer.music.pause()
 	player = 'pause'
 	print("=-=-=- player PAUSED")
-    # Else statement for if it is the first timeradio plays music.
+    # First play
     else:
 	mixer.music.play()
 	player = 'play'
@@ -150,7 +154,6 @@ def volume_up(pin):
     print ("volume : " + str(volume))
     
 ######################################################################## VOLUME DOWN button
-
 @phatbeat.on(phatbeat.BTN_VOLDN)
 def volume_down(pin):
     global volume
@@ -159,7 +162,6 @@ def volume_down(pin):
     print ("volume : " + str(volume))
     
 ######################################################################## NEXT TRACK button
-
 @phatbeat.on(phatbeat.BTN_FASTFWD)
 def fast_forward(pin):
     global song_now
@@ -172,7 +174,6 @@ def fast_forward(pin):
     print ("playing next : " + song_now)	
 
 ######################################################################## PREVIOUS TRACK button
-
 @phatbeat.on(phatbeat.BTN_REWIND)
 def rewind(pin):
     global song_now
@@ -186,21 +187,32 @@ def rewind(pin):
 
 @phatbeat.on(phatbeat.BTN_ONOFF, repeat=False)
 def onoff(pin):
-    print ("ON/OFF button")
     global Run
     phatbeat.clear()
     # invert Run True/False
     Run = not Run
+    print ("ON/OFF button: " + str(Run))
     
 ######################################################################## MAIN
     
-while Run:
-    if player != 'loading':
-	# automatic play track after track
-	if(mixer.music.get_busy() == 0 and player != 'pause'):
-	    if random_mode:
-		song_randomize()
-	    else :
-		song_next()
-	    mixer.music.play()
-	    player = "play"
+while True:
+    if Run == True:
+	if player != 'loading':
+	    # automatic play track after track
+	    if(mixer.music.get_busy() == 0 and player != 'pause'):
+		if random_mode:
+		    song_randomize()
+		else :
+		    song_next()
+		mixer.music.play()
+		player = "play"
+    if Run == False:
+	if player != 'pause':
+	    player = 'pause'
+	    mixer.music.pause()
+	    mixer.init()
+	    mixer.music.set_volume(volume)
+	phatbeat_wait()
+	time.sleep(2)
+
+
