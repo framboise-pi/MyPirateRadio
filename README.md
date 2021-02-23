@@ -9,7 +9,17 @@ Made with Pimoroni Pirate Radio and Raspberry Zero W
 - builds a tracklist based on a directory and subdirectories
 - every action is displayed on console
 - playing track displayed in console
-- 
+
+
+# PERMISSIONS FOR .php (when launching python, web user name will be "www-data", not "root" or "pi")
+## edit sudoers permissions
+- `sudo visudo`
+###  under the # User privilege specification
+- `www-data ALL=(ALL) NOPASSWD: /usr/bin/python`
+## add user www-data to gpio
+- `sudo adduser www-data gpio`
+## reboot/restart
+- running mypirateradio.py with button on web page should work
 
 # Future
 - .php to supervise playing and ressources
