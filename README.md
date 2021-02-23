@@ -17,7 +17,9 @@ Made with Pimoroni Pirate Radio and Raspberry Zero W
 - .php explore tracklist
 
 # Remove pulseaudio (high CPU load on raspberry zero)
-- `sudo nano /etc/asound.conf` for alsa config of VUmeters (brightness, decay, peak)
+- `sudo apt remove --purge pulseaudio`
+# Alsa config of VUmeters (brightness, decay, peak)
+- `sudo nano /etc/asound.conf`
 
 # Performances on Raspberry zero
 - pulseaudio by itself was using 30/40% without any program running. Versus 1% for Alsa.
