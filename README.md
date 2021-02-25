@@ -1,6 +1,7 @@
-# MyPimoroni-PirateRadio
-mp3 player from NAS,or else; play random or not
+# MyPirateRadio
+[EN] mp3 player from NAS,or else; play random or not
 Made with Pimoroni Pirate Radio and Raspberry Zero W
+[FR] lecteur mp3, développé pour une utilisation avec NAS avec le module pHAT BEAT de Pimoroni (pimoroni pirate radio kit) et un Raspberry zero W. Avec le système de mise en veille, pour permettre une utilisation - pas très écologique il est vrai - de la radio 24/24 7/7 par les utilisateurs, sans avoir à relancer de script par exemple.
 
 # How and What ?
 - ON/OFF button dont stop the program
@@ -9,6 +10,17 @@ Made with Pimoroni Pirate Radio and Raspberry Zero W
 - builds a tracklist based on a directory and subdirectories
 - every action is displayed on console
 - playing track displayed in console
+Maybe I was not 'lucky' enough, but I did not find any script to fill my needs/hardware around a network mp3 player with .php and some functions like a ON/OFF button that don't quit the main program.
+
+# Comment et pourquoi ?
+- le bouton ON/OFF ne quitte pas le programme
+- clignotement du VUmetre pour indiquer le mode veille (OFF)
+- 2 modes de lecture : aléatoire ou simple
+- construit une playlist à partir d'un dossier et ses sous repertoires
+- toute action est affichée en console
+- titre mp3 en lecture/chargé est affiché sur la consolle
+Je n'ai pas trouvé sur github ou ailleurs un programme python qui corresponde à mes besoins/matériels. Ce qui explique la création et le partage de celui ci.
+
 
 
 # PERMISSIONS FOR .php (when launching python, web user name will be "www-data", not "root" or "pi")
