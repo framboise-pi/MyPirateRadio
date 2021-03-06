@@ -3,6 +3,11 @@
 Made with Pimoroni Pirate Radio and Raspberry Zero W
 <br>[FR] lecteur mp3, développé pour une utilisation avec NAS avec le module pHAT BEAT de Pimoroni (pimoroni pirate radio kit) et un Raspberry zero W. Avec le système de mise en veille, pour permettre une utilisation - pas très écologique il est vrai - de la radio 24/24 7/7 par les utilisateurs, sans avoir à relancer de script par exemple.
 
+<p align="center">
+<img src="https://cdn.shopify.com/s/files/1/0174/1800/products/zero-w-kits-square-1_1024x1024.jpg?v=1606227996" width="200px">
+  <img src="https://sha256systems.eu/WebRoot/Store27/Shops/5b7c8826-3528-4d6f-bd2d-c024fcdbd435/5EAF/3F55/6C80/BE99/F0D3/0A48/3570/4BF9/DEV-15749-4.jpeg" width="200px">
+</p>
+
 # How and What ?
 - ON/OFF button dont stop the program
 - OFF mode will blink VUmeter every X seconds until power ON is set back
