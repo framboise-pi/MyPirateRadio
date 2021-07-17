@@ -9,7 +9,7 @@ Made with Pimoroni Pirate Radio and Raspberry Zero W
 </p>
 
 # How and What ?
-- ON/OFF button dont stop the program
+- ON/OFF button dont stop the program ! = SLEEP MODE
 - OFF mode will blink VUmeter every X seconds until power ON is set back
 - 2 play modes : random or track after track
 - builds a tracklist based on a directory and subdirectories
